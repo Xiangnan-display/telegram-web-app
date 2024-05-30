@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>海拥 | 盖塔楼</title>
+    <meta name="viewport" content="width=device-width,user-scalable=no">
+    <meta name="keywords" content="盖塔楼" />
+    <meta name="description" content="盖塔楼" /> 
+    <meta name="author" content="海拥(http://haiyong.site)" />
+    <meta name="copyright" content="海拥(http://haiyong.site)" />
+    <link rel="icon" type="image/x-icon" href="http://haiyong.site/wp-content/uploads/2021/07/cropped-59255587-1-192x192.jpg" />
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>		
+    <div id="container">
+        <div id="game"></div>
+        <div id="score">0</div>
+        <div id="instructions">单击(或按空格)放置砖块</div>
+        <div class="game-over">
+            <h2>Game Over</h2>
+            <p>你做的很好啦,你是最棒的</p>
+            <p>单击或按空格重新开始</p>
+        </div>
+        <div class="game-ready">
+            <div id="start-button">开始</div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r83/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+    <script>
+        // 初始化 Telegram Web App
+        Telegram.WebApp.ready();
+
+        // 当主题改变时，更新背景颜色
+        Telegram.WebApp.onEvent('themeChanged', function() {
+            document.body.style.backgroundColor = Telegram.WebApp.backgroundColor;
+        });
+
+        // 设置并显示主按钮
+        Telegram.WebApp.MainButton.setParams({
+            text: 'Restart Game'
+        });
+        Telegram.WebApp.MainButton.onClick(function () {
+            restartGame(); // 当主按钮被点击时，重新开始游戏
+        });
+        Telegram.WebApp.MainButton.show(); // 显示主按钮
+
+        // 加载现有的游戏脚本
+        const script = document.createElement('script');
+        script.src = 'js/script.js';
+        document.body.appendChild(script);
+
+        // 重新开始游戏函数
+        function restartGame() {
+            // 你的重新开始游戏逻辑
+            document.querySelector('.game-over').style.display = 'none';
+            document.querySelector('.game-ready').style.display = 'block';
+            // 可能还需要调用你在 script.js 中的初始化或重置函数
+        }
+    </script>
+</body>
+</html>
