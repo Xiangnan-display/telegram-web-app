@@ -51,6 +51,8 @@
             // 如果用户信息存在，则显示用户信息
             const userInfoElement = document.getElementById('user-info');
             userInfoElement.innerHTML = `
+            <p>User user: ${JSON.stringify(user)}</p>
+
                 <p>User ID: ${user.id}</p>
                 <p>Username: ${user.username}</p>
                 <p>First Name: ${user.first_name}</p>
