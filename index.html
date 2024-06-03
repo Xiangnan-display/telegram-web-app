@@ -42,8 +42,6 @@
         // 初始化 Telegram Web App
         Telegram.WebApp.ready();
 
-            // 监听用户信息传递事件
-            window.Telegram.WebApp.ready();
 
         // 获取用户信息并显示
         const user = window.Telegram.WebApp.initDataUnsafe.user;
@@ -54,18 +52,19 @@
             <p>User user: ${JSON.stringify(user)}</p>
 
                 <p>User ID: ${user.id}</p>
-                <p>Username: ${user.username}</p>
                 <p>First Name: ${user.first_name}</p>
                 <p>Last Name: ${user.last_name}</p>
+                <p>allows_write_to_pm: ${user.allows_write_to_pm}</p>
+
             `;
         } else {
             // 如果用户信息不存在，则显示未登录信息
             document.getElementById('user-info').innerText = 'Not logged in';
         }
         // 当主题改变时，更新背景颜色
-        // Telegram.WebApp.onEvent('themeChanged', function() {
-        //     document.body.style.backgroundColor = Telegram.WebApp.backgroundColor;
-        // });
+        Telegram.WebApp.onEvent('themeChanged', function() {
+            document.body.style.backgroundColor = Telegram.WebApp.backgroundColor;
+        });
 
         // // 设置并显示主按钮
         // Telegram.WebApp.MainButton.setParams({
