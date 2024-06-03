@@ -38,17 +38,17 @@
         Telegram.WebApp.ready();
 
         // 当主题改变时，更新背景颜色
-        Telegram.WebApp.onEvent('themeChanged', function() {
-            document.body.style.backgroundColor = Telegram.WebApp.backgroundColor;
-        });
+        // Telegram.WebApp.onEvent('themeChanged', function() {
+        //     document.body.style.backgroundColor = Telegram.WebApp.backgroundColor;
+        // });
 
-        // 设置并显示主按钮
-        Telegram.WebApp.MainButton.setParams({
-            text: 'Restart Game'
-        });
-        Telegram.WebApp.MainButton.onClick(function () {
-            restartGame(); // 当主按钮被点击时，重新开始游戏
-        });
+        // // 设置并显示主按钮
+        // Telegram.WebApp.MainButton.setParams({
+        //     text: 'Restart Game'
+        // });
+        // Telegram.WebApp.MainButton.onClick(function () {
+        //     restartGame(); // 当主按钮被点击时，重新开始游戏
+        // });
         // Telegram.WebApp.MainButton.show(); // 显示主按钮
 
         // 加载现有的游戏脚本
