@@ -27,12 +27,18 @@
     </div>
 
     <!-- Telegram 登录按钮 -->
-    <div id="telegram-login-container" style="text-align: center; margin-top: 20px;">
+    <!-- <div id="telegram-login-container" style="text-align: center; margin-top: 20px;">
         <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-login="XiangNan2_bot" data-size="large" data-onauth="onTelegramAuth(user)" data-request-access="write"></script>
-    </div>
+    </div> -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r83/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+    <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-login="XiangNan2_bot" data-size="large" data-onauth="onTelegramAuth(user)" data-request-access="write"></script>
+    <script type="text/javascript">
+      function onTelegramAuth(user) {
+        alert('Logged in as ' + user.first_name + ' ' + user.last_name + ' (' + user.id + (user.username ? ', @' + user.username : '') + ')');
+      }
+    </script>
     <script>
         // 初始化 Telegram Web App
         Telegram.WebApp.ready();
@@ -65,10 +71,11 @@
         }
 
         // Telegram 登录回调函数
-        function onTelegramAuth(user) {
-            alert('Logged in as ' + user.first_name + ' ' + user.last_name + ' (' + user.id + (user.username ? ', @' + user.username : '') + ')');
-            document.getElementById('telegram-login-container').style.display = 'none'; // 登录成功后隐藏登录按钮
-        }
+        // function onTelegramAuth(user) {
+        //     alert('Logged in as ' + user.first_name + ' ' + user.last_name + ' (' + user.id + (user.username ? ', @' + user.username : '') + ')');
+        //     document.getElementById('telegram-login-container').style.display = 'none'; // 登录成功后隐藏登录按钮
+        // }
     </script>
+   
 </body>
 </html>
