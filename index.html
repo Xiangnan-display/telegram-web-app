@@ -12,7 +12,7 @@
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>		
-    <!-- <div id="container">
+    <div id="container">
         <div id="game"></div>
         <div id="score">0</div>
         <div id="instructions">单击(或按空格)放置砖块</div>
@@ -25,15 +25,15 @@
             <div id="start-button">开始1</div>
         </div>
       
-    </div> -->
-    <h1>Welcome to Telegram Mini App</h1>
+    </div>
+    <!-- <h1>Welcome to Telegram Mini App</h1>
     <div id="user-info"></div>
-    <!-- Telegram 登录按钮 -->
+    Telegram 登录按钮
     <script async src="https://telegram.org/js/telegram-widget.js?22" 
             data-telegram-login="XiangNan2_bot" 
             data-size="large" 
             data-onauth="onTelegramAuth(user)">
-    </script>
+    </script> -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r83/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
@@ -50,27 +50,27 @@
 
 
         // 获取用户信息并显示
-        const user = window.Telegram.WebApp.initDataUnsafe.user;
-        if (user) {
-            // 如果用户信息存在，则显示用户信息
-            const userInfoElement = document.getElementById('user-info');
-            userInfoElement.innerHTML = `
-            <p>User user: ${JSON.stringify(user)}</p>
+        // const user = window.Telegram.WebApp.initDataUnsafe.user;
+        // if (user) {
+        //     // 如果用户信息存在，则显示用户信息
+        //     const userInfoElement = document.getElementById('user-info');
+        //     userInfoElement.innerHTML = `
+        //     <p>User user: ${JSON.stringify(user)}</p>
 
-                <p>User ID: ${user.id}</p>
-                <p>First Name: ${user.first_name}</p>
-                <p>Last Name: ${user.last_name}</p>
-                <p>allows_write_to_pm: ${user.allows_write_to_pm}</p>
+        //         <p>User ID: ${user.id}</p>
+        //         <p>First Name: ${user.first_name}</p>
+        //         <p>Last Name: ${user.last_name}</p>
+        //         <p>allows_write_to_pm: ${user.allows_write_to_pm}</p>
 
-            `;
-        } else {
-            // 如果用户信息不存在，则显示未登录信息
-            document.getElementById('user-info').innerText = 'Not logged in';
-        }
+        //     `;
+        // } else {
+        //     // 如果用户信息不存在，则显示未登录信息
+        //     document.getElementById('user-info').innerText = 'Not logged in';
+        // }
         // 当主题改变时，更新背景颜色
-        Telegram.WebApp.onEvent('themeChanged', function() {
-            document.body.style.backgroundColor = Telegram.WebApp.backgroundColor;
-        });
+        // Telegram.WebApp.onEvent('themeChanged', function() {
+        //     document.body.style.backgroundColor = Telegram.WebApp.backgroundColor;
+        // });
 
         // // 设置并显示主按钮
         // Telegram.WebApp.MainButton.setParams({
