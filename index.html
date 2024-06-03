@@ -8,7 +8,6 @@
     <meta name="description" content="盖塔楼" /> 
     <meta name="author" content="海拥(http://haiyong.site)" />
     <meta name="copyright" content="海拥(http://haiyong.site)" />
-    <!-- <link rel="icon" type="image/x-icon" href="http://haiyong.site/wp-content/uploads/2021/07/cropped-59255587-1-192x192.jpg" /> -->
     <link rel="stylesheet" href="css/style.css">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
@@ -25,6 +24,11 @@
         <div class="game-ready">
             <div id="start-button">开始</div>
         </div>
+    </div>
+
+    <!-- Telegram 登录按钮 -->
+    <div id="telegram-login-container" style="text-align: center; margin-top: 20px;">
+        <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-login="YOUR_BOT_USERNAME" data-size="large" data-onauth="onTelegramAuth(user)" data-request-access="write"></script>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r83/three.min.js"></script>
@@ -45,7 +49,7 @@
         Telegram.WebApp.MainButton.onClick(function () {
             restartGame(); // 当主按钮被点击时，重新开始游戏
         });
-        Telegram.WebApp.MainButton.show(); // 显示主按钮
+        // Telegram.WebApp.MainButton.show(); // 显示主按钮
 
         // 加载现有的游戏脚本
         const script = document.createElement('script');
@@ -58,6 +62,12 @@
             document.querySelector('.game-over').style.display = 'none';
             document.querySelector('.game-ready').style.display = 'block';
             // 可能还需要调用你在 script.js 中的初始化或重置函数
+        }
+
+        // Telegram 登录回调函数
+        function onTelegramAuth(user) {
+            alert('Logged in as ' + user.first_name + ' ' + user.last_name + ' (' + user.id + (user.username ? ', @' + user.username : '') + ')');
+            document.getElementById('telegram-login-container').style.display = 'none'; // 登录成功后隐藏登录按钮
         }
     </script>
 </body>
