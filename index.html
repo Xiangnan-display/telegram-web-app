@@ -51,10 +51,10 @@
         Telegram.WebApp.ready();
 
     
-       const userInfo =  getUserInfo();
+       const userInfo =  JSON.parse( localStorage.getItem('userInfo'))
 
         const userInfoElement = document.getElementById('user-info');
-        if (userInfo.user_id) {
+        if (userInfo&&userInfo.user_id) {
             const userInfoString =  JSON.parse( localStorage.getItem('userInfo'))
             userInfoElement.innerHTML = `
             <p>localStorage: ${userInfoString.first_name}</p>
