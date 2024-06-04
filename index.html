@@ -50,29 +50,44 @@
         // 初始化 Telegram Web App
         Telegram.WebApp.ready();
 
-
-        // 获取用户信息并显示
-        const initDataUnsafe = window.Telegram.WebApp.initDataUnsafe;
-        const user = window.Telegram.WebApp.initDataUnsafe.user;
-        if (user) {
-            // 如果用户信息存在，则显示用户信息
-            const userInfoElement = document.getElementById('user-info');
+        const userInfo = getUserInfo();
+        const userInfoElement = document.getElementById('user-info');
+        if (userInfo.user_id) {
             userInfoElement.innerHTML = `
-
-                <p>query_id: ${initDataUnsafe.query_id}</p>
-
-                <p>用户ID: ${user.id}</p>
-                <p>First Name: ${user.first_name}</p>
-                <p>Last Name: ${user.last_name}</p>
-                <p>用户是否允许机器人发送私信的布尔值: ${user.allows_write_to_pm}</p>
-                <p>hash值: ${initDataUnsafe.hash}</p>
-                <p>auth_date授权日期的时间戳: ${initDataUnsafe.auth_date}</p>
-
+            <p>query_id: ${userInfo.query_id}</p>
+            <p>用户ID: ${userInfo.user_id}</p>
+            <p>First Name: ${userInfo.first_name}</p>
+            <p>Last Name: ${userInfo.last_name}</p>
+            <p>用户是否允许机器人发送私信的布尔值: ${userInfo.allows_write_to_pm}</p>
+            <p>hash值: ${userInfo.hash}</p>
+            <p>auth_date授权日期的时间戳: ${userInfo.auth_date}</p>
             `;
         } else {
-            // 如果用户信息不存在，则显示未登录信息
-            document.getElementById('user-info').innerText = 'Not logged in';
+            userInfoElement.innerText = 'Not logged in';
         }
+
+        // 获取用户信息并显示
+        // const initDataUnsafe = window.Telegram.WebApp.initDataUnsafe;
+        // const user = window.Telegram.WebApp.initDataUnsafe.user;
+        // if (user) {
+        //     // 如果用户信息存在，则显示用户信息
+        //     const userInfoElement = document.getElementById('user-info');
+        //     userInfoElement.innerHTML = `
+
+        //         <p>query_id: ${initDataUnsafe.query_id}</p>
+
+        //         <p>用户ID: ${user.id}</p>
+        //         <p>First Name: ${user.first_name}</p>
+        //         <p>Last Name: ${user.last_name}</p>
+        //         <p>用户是否允许机器人发送私信的布尔值: ${user.allows_write_to_pm}</p>
+        //         <p>hash值: ${initDataUnsafe.hash}</p>
+        //         <p>auth_date授权日期的时间戳: ${initDataUnsafe.auth_date}</p>
+
+        //     `;
+        // } else {
+        //     // 如果用户信息不存在，则显示未登录信息
+        //     document.getElementById('user-info').innerText = 'Not logged in';
+        // }
         // 当主题改变时，更新背景颜色
         // Telegram.WebApp.onEvent('themeChanged', function() {
         //     document.body.style.backgroundColor = Telegram.WebApp.backgroundColor;
