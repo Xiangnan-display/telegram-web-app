@@ -55,7 +55,7 @@
 
     
     //    const userInfo = getUserInfo()
-    const initDataUnsafe = window.Telegram.WebApp.initDataUnsafe;
+    const initDataUnsafe = Telegram.WebApp.initDataUnsafe.user;
         const userInfoElement = document.getElementById('user-info');
         userInfoElement.innerHTML = `
             <p>userInfo: ${JSON.stringify(initDataUnsafe)}</p>
