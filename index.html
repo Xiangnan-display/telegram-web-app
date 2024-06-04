@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
-
 </head>
 <body>		
     <!-- <div id="container">
@@ -31,12 +30,14 @@
     <h1>Welcome to Telegram Mini App</h1>
     <div id="user-info"></div>
     <button id="button">当前用户</button>
-    <!-- Telegram 登录按钮
-    <script async src="https://telegram.org/js/telegram-widget.js?22" 
-            data-telegram-login="XiangNan2_bot" 
-            data-size="large" 
-            data-onauth="onTelegramAuth(user)">
-    </script> -->
+    <!-- <h1>通过 Telegram 登录</h1>
+    <script async src="https://telegram.org/js/telegram-widget.js?14"
+            data-telegram-login="XiangNan2_bot"
+            data-size="large"
+            data-userpic="true"
+            data-auth-url="https://your-server.com/auth"
+            data-request-access="write"></script> -->
+   
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r83/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
@@ -59,16 +60,19 @@
         if (userInfo&&userInfo.user_id) {
             // const userInfoString =  JSON.parse( localStorage.getItem('userInfo'))
             userInfoElement.innerHTML = `
-            <p>localStorage444: ${userInfo.first_name}</p>
+            <p>userInfo: ${JSON.stringify(userInfo)}</p>
 
-            <p>query_id: ${userInfo.query_id}</p>
-            <p>用户ID: ${userInfo.user_id}</p>
-            <p>First Name: ${userInfo.first_name}</p>
-            <p>Last Name: ${userInfo.last_name}</p>
-            <p>用户是否允许机器人发送私信的布尔值: ${userInfo.allows_write_to_pm}</p>
-            <p>hash值: ${userInfo.hash}</p>
-            <p>auth_date授权日期的时间戳: ${userInfo.auth_date}</p>
             `;
+            
+            // <p>localStorage444: ${userInfo.first_name}</p>
+
+            // <p>query_id: ${userInfo.query_id}</p>
+            // <p>用户ID: ${userInfo.user_id}</p>
+            // <p>First Name: ${userInfo.first_name}</p>
+            // <p>Last Name: ${userInfo.last_name}</p>
+            // <p>用户是否允许机器人发送私信的布尔值: ${userInfo.allows_write_to_pm}</p>
+            // <p>hash值: ${userInfo.hash}</p>
+            // <p>auth_date授权日期的时间戳: ${userInfo.auth_date}</p>
         } else {
             userInfoElement.innerHTML = 'Not logged in444';
         }
