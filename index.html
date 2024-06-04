@@ -29,7 +29,7 @@
     </div> -->
     <h1>Welcome to Telegram Mini App</h1>
     <div id="user-info"></div>
-    <button id="button">当前用户</button>
+    <button id="button">当前用户1</button>
     <!-- <h1>通过 Telegram 登录</h1>
     <script async src="https://telegram.org/js/telegram-widget.js?14"
             data-telegram-login="XiangNan2_bot"
@@ -54,15 +54,16 @@
         Telegram.WebApp.ready();
 
     
-       const userInfo = getUserInfo()
-
+    //    const userInfo = getUserInfo()
+    const initDataUnsafe = window.Telegram.WebApp.initDataUnsafe;
         const userInfoElement = document.getElementById('user-info');
-        if (userInfo&&userInfo.user_id) {
-            // const userInfoString =  JSON.parse( localStorage.getItem('userInfo'))
-            userInfoElement.innerHTML = `
-            <p>userInfo: ${JSON.stringify(userInfo)}</p>
+        userInfoElement.innerHTML = `
+            <p>userInfo: ${JSON.stringify(initDataUnsafe)}</p>
 
             `;
+        // if (userInfo&&userInfo.user_id) {
+            // const userInfoString =  JSON.parse( localStorage.getItem('userInfo'))
+         
             
             // <p>localStorage444: ${userInfo.first_name}</p>
 
@@ -73,9 +74,9 @@
             // <p>用户是否允许机器人发送私信的布尔值: ${userInfo.allows_write_to_pm}</p>
             // <p>hash值: ${userInfo.hash}</p>
             // <p>auth_date授权日期的时间戳: ${userInfo.auth_date}</p>
-        } else {
-            userInfoElement.innerHTML = 'Not logged in444';
-        }
+        // } else {
+        //     userInfoElement.innerHTML = 'Not logged in444';
+        // }
             // 为按钮添加点击事件监听器
             const button = document.getElementById('button');
             button.addEventListener('click', function() {
