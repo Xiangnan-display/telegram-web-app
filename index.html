@@ -30,6 +30,7 @@
     </div> -->
     <h1>Welcome to Telegram Mini App</h1>
     <div id="user-info"></div>
+    <button id="button"></button>
     <!-- Telegram 登录按钮
     <script async src="https://telegram.org/js/telegram-widget.js?22" 
             data-telegram-login="XiangNan2_bot" 
@@ -57,7 +58,7 @@
         if (userInfo&&userInfo.user_id) {
             const userInfoString =  JSON.parse( localStorage.getItem('userInfo'))
             userInfoElement.innerHTML = `
-            <p>localStorage111: ${userInfoString.first_name}</p>
+            <p>localStorage222: ${userInfoString.first_name}</p>
 
             <p>query_id: ${userInfo.query_id}</p>
             <p>用户ID: ${userInfo.user_id}</p>
@@ -70,7 +71,18 @@
         } else {
             userInfoElement.innerText = 'Not logged in1';
         }
-
+            // 为按钮添加点击事件监听器
+            const button = document.getElementById('button');
+            button.addEventListener('click', function() {
+                // 获取并显示存储在 localStorage 中的用户信息
+                const userInfoString1 = localStorage.getItem('userInfo');
+                if (userInfoString1) {
+                    const userInfo1 = JSON.parse(userInfoString1);
+                    alert("存储的用户名称：" + userInfo1.first_name);
+                } else {
+                    alert("没有存储的用户信息");
+                }
+            });
         // 获取用户信息并显示
         // const initDataUnsafe = window.Telegram.WebApp.initDataUnsafe;
         // const user = window.Telegram.WebApp.initDataUnsafe.user;
