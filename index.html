@@ -50,11 +50,14 @@
 
 
         // 获取用户信息并显示
+        const initDataUnsafe = window.Telegram.WebApp.initDataUnsafe;
         const user = window.Telegram.WebApp.initDataUnsafe.user;
         if (user) {
             // 如果用户信息存在，则显示用户信息
             const userInfoElement = document.getElementById('user-info');
             userInfoElement.innerHTML = `
+            <p>User initDataUnsafe: ${JSON.stringify(initDataUnsafe)}</p>
+
             <p>User user: ${JSON.stringify(user)}</p>
 
                 <p>User ID: ${user.id}</p>
