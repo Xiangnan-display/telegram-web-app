@@ -31,28 +31,19 @@
 //     }
 //   }
 
-//   function getUserInfo(){
-//     const userInfoString = localStorage.getItem('userInfo');  
-//     if (userInfoString) {  
-//         return JSON.parse(userInfoString);  
-//     }  
-//     return null;  
-//     }
+  function getUserInfo(){
+    const userInfoString = localStorage.getItem('userInfo');  
+    if (userInfoString) {  
+        return JSON.parse(userInfoString);  
+    }  
+    return null;  
+    }
 
 ( function() {
     onload = function () {
         // 获取用户信息并显示
         const initDataUnsafe = window.Telegram.WebApp.initDataUnsafe;
         const user = window.Telegram.WebApp.initDataUnsafe.user;
-        let userInfo = {
-                    query_id: initDataUnsafe.query_id,
-                    user_id: user.id,
-                    first_name: user.first_name,
-                    last_name: user.last_name,
-                    allows_write_to_pm: user.allows_write_to_pm,
-                    hash: initDataUnsafe.hash,
-                    auth_date: initDataUnsafe.auth_date
-                  }
         if (user) {
             alert("用户名称2："+userInfo.first_name)
             const userInfo = {
