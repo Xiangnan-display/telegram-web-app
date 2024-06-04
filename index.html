@@ -50,10 +50,15 @@
         // 初始化 Telegram Web App
         Telegram.WebApp.ready();
 
-        const userInfo = getUserInfo();
+    
+       const userInfo =  getUserInfo();
+
         const userInfoElement = document.getElementById('user-info');
         if (userInfo.user_id) {
+            const userInfoString =  JSON.parse( localStorage.getItem('userInfo'))
             userInfoElement.innerHTML = `
+            <p>localStorage: ${userInfoString.first_name}</p>
+
             <p>query_id: ${userInfo.query_id}</p>
             <p>用户ID: ${userInfo.user_id}</p>
             <p>First Name: ${userInfo.first_name}</p>
