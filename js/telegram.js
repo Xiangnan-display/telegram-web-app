@@ -5,7 +5,7 @@
         const initDataUnsafe = window.Telegram.WebApp.initDataUnsafe;
         const user = window.Telegram.WebApp.initDataUnsafe.user;
         if (user) {
-            alert("用户信息",JSON.stringify(initDataUnsafe))
+            alert("用户名称："+user.first_name)
             // 如果用户信息存在，则显示用户信息
             // const userInfoElement = document.getElementById('user-info');
             // userInfoElement.innerHTML = `
