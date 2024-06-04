@@ -1,6 +1,8 @@
- function getUserInfo() {
+// userInfo.js
+
+export function getUserInfo() {
     const initDataUnsafe = window.Telegram.WebApp.initDataUnsafe;
-    const user = window.Telegram.WebApp.initDataUnsafe.user;
+    const user = initDataUnsafe.user;
     if (user) {
         const userInfo = {
             query_id: initDataUnsafe.query_id,
@@ -10,26 +12,21 @@
             allows_write_to_pm: user.allows_write_to_pm,
             hash: initDataUnsafe.hash,
             auth_date: initDataUnsafe.auth_date
-          };
-        //   const userInfoString = JSON.stringify(userInfo);  
-                
-        //               // 存储到 localStorage  
-        //               localStorage.setItem('userInfo', userInfoString);  
-      // 如果用户信息存在，则返回用户信息
-      return userInfo
+        };
+        return userInfo;
     } else {
-      // 如果用户信息不存在，则返回未登录信息
-      return {
-        query_id: null,
-        user_id: null,
-        first_name: null,
-        last_name: null,
-        allows_write_to_pm: null,
-        hash: null,
-        auth_date: null
-      };
+        return {
+            query_id: null,
+            user_id: null,
+            first_name: null,
+            last_name: null,
+            allows_write_to_pm: null,
+            hash: null,
+            auth_date: null
+        };
     }
-  }
+}
+
 
 //   function getUserInfo(){
 //     const userInfoString = localStorage.getItem('userInfo');  
