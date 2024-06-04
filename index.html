@@ -58,7 +58,7 @@
         if (userInfo&&userInfo.user_id) {
             // const userInfoString =  JSON.parse( localStorage.getItem('userInfo'))
             userInfoElement.innerHTML = `
-            <p>localStorage333: ${userInfo.first_name}</p>
+            <p>localStorage444: ${userInfo.first_name}</p>
 
             <p>query_id: ${userInfo.query_id}</p>
             <p>用户ID: ${userInfo.user_id}</p>
@@ -69,16 +69,15 @@
             <p>auth_date授权日期的时间戳: ${userInfo.auth_date}</p>
             `;
         } else {
-            userInfoElement.innerText = 'Not logged in333';
+            userInfoElement.innerText = 'Not logged in444';
         }
             // 为按钮添加点击事件监听器
             const button = document.getElementById('button');
             button.addEventListener('click', function() {
-                // 获取并显示存储在 localStorage 中的用户信息
-                const userInfoString1 = localStorage.getItem('userInfo');
-                if (userInfoString1) {
-                    const userInfo1 = JSON.parse(userInfoString1);
+          
+                if (userInfo&&userInfo.user_id) {
                     alert("存储的用户名称：" + userInfo1.first_name);
+
                 } else {
                     alert("没有存储的用户信息");
                 }
